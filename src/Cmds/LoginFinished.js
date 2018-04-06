@@ -5,11 +5,11 @@
 	}
 
 	if(typeof module !== "undefined"){
-		Cmd = require("./Base_Cmd");
+		Cmd = require("../../libs/CircleGameLib/Base_Cmd");
 	}
 
-	function _namespace(namespace) {
-		Cmd.apply(this, arguments);
+	function _namespace() {
+		Cmd.call(this, namespace);
 	}
 	_namespace.prototype = new Cmd();
 
@@ -21,4 +21,5 @@
 		console.log("Logined!!!");
 		return true;
 	}
+	new _namespace();
 })()
