@@ -1,12 +1,12 @@
 var IsOpen = false;
-var MsgSender = null;
+global.MsgSender = GetMsgSender();
 
 function Login(userName) {
-
+	InitMsgSender();
 }
 
 function InitMsgSender() {
-	GetMsgSneder().Init({
+	global.MsgSender.Init({
 		Url: "ws://127.0.0.1:1000",
 		OnMessage: function (ev) {
 			var data = JSON.parse(ev.data);
@@ -22,14 +22,6 @@ function InitMsgSender() {
 			IsOpen = true;
 			console.log("open", ev);
 		}
-	})
+	});
+	global.EvEmitter.On("Msger_SendMsg", global.MsgSender.Send.bind(global.MsgSender));
 }
-
-setInterval(function () {
-	if (!IsOpen) {
-		return false;
-	}
-	var jsonData = JSON.stringify({ a: 100 });
-	MsgSender.send(jsonData);
-}, 1000);
-
