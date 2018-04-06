@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-		<title>My Sample Project</title>		
-		<script src="./libs/JsBase/jsbase.js"></script>
-		<script src="./libs/CircleGameLib/Player.js"></script>
-		<script src="./libs/eventemitter2.js"></script>
-		<script src="./main.js"></script>
-    </head>
-    <body>
-        <h1>My Sample Project</h1>
-    </body>
+
+
+<head>
+	<meta charset="UTF-8">
+	<title>My Sample Project</title>
+	<!-- My Base Script -->
+	<script src="./libs/JsBase/jsbase.js"></script>
+
+	<!--Other Lib-->
+	<script src="./libs/jquery-3.3.1.min.js"></script>
+	<script src="./libs/async.js"></script>
+	<script src="./libs/eventemitter2.js"></script>
+
+	<!--My Lib-->
+	<script src="./libs/CircleGameLib/Player.js"></script>
+
+	<!--Game Script-->
+	<script src="./src/global.js"></script>
+	<script src="./src/main.js"></script>
+</head>
+
+<body>
+	<h1>My Sample Project</h1>
+
+	<input id="UserName" placeholder="UserName" />
+	<button onclick="Login($('#UserName').val())">登录</button>
+</body>
+
 </html>
